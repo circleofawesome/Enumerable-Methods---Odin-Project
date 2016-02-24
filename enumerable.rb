@@ -17,5 +17,17 @@ module Enumerable
 			end
 			return ret_array
 		end
+		#works
+
+		def my_select
+			ret_array=[]
+			self.my_each do |i|
+				if yield(i)==true
+					ret_array<<i
+				end
+			end
+			return ret_array
+		end
+		#works
 
 end
