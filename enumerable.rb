@@ -1,6 +1,5 @@
 module Enumerable
-	class::Array
-
+	
 		def my_each
 			len=self.length
 			ret_array=[]
@@ -12,11 +11,6 @@ module Enumerable
 			return ret_array
 		end
 
-	end
 end
-
-arr=[1,2,3]
-
-puts arr.my_each {|i|i+2}
 
 #this works 
