@@ -1,16 +1,21 @@
 module Enumerable
-	
 		def my_each
-			len=self.length
 			ret_array=[]
 			num=0
-			len.times do
+			self.length.times do
 				ret_array<<yield(self[num])
-				num=num+1
+				num+=1
+			end
+			return ret_array
+		end
+		#works
+
+		def my_each_with_index
+			ret_array=[]
+			for i in 0..self.length do
+				ret_array<<yield(i)
 			end
 			return ret_array
 		end
 
 end
-
-#this works 
