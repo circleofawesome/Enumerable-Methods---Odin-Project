@@ -8,11 +8,11 @@ module Enumerable
 			end
 			return ret_array
 		end
-	def my_all?
-		ret_bool=true
+	def my_any?
+		ret_bool=false
 		self.my_each do |i|
-			if yield(i)==false
-				ret_bool=false
+			if yield(i)==true
+				ret_bool=true
 				break
 			end
 		end
@@ -22,4 +22,4 @@ module Enumerable
 
 end
 
-puts %w[ant bear cat].my_all? { |word| word.length >= 4 }
+puts %w[ant bear cat].my_any? { |word| word.length >= 5 }

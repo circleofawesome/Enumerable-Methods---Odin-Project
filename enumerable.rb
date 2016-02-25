@@ -42,4 +42,16 @@ module Enumerable
 		end
 		#works
 
+		def my_any?
+			ret_bool=false
+			self.my_each do |i|
+				if yield(i)==true
+					ret_bool=true
+					break
+				end
+			end
+			return ret_bool
+		end
+		#works
+
 end
