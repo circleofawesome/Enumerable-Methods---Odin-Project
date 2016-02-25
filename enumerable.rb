@@ -54,4 +54,16 @@ module Enumerable
 		end
 		#works
 
+		def my_none?
+			ret_bool=true
+			self.my_each do |i|
+				if yield(i)==true
+					ret_bool=false
+					break
+				end
+			end
+			return ret_bool
+		end
+		#works
+
 end
