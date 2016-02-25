@@ -16,7 +16,13 @@ module Enumerable
 					count+=1
 				end
 			end
-			#^this part works^
+		
+		elsif num[0]==nil
+			self.my_each do |i|
+				if i!=nil
+					count+=1
+				end
+			end
 		elsif num!=nil
 			num.each do |p|
 				self.each do |i|
@@ -25,18 +31,11 @@ module Enumerable
 					end
 				end
 			end
-			#^this part works^
-		elsif num==nil
-			self.my_each do |i|
-				if i!=nil
-					count+=1
-				end
-			end
 		end
 		return count
 	end
 
 end
 
-arr=[1,2,3,4,4,3,6]
-puts arr.my_count
+arr=[1,2,3,4,4]
+puts arr.my_count{|i|i>2}
