@@ -8,19 +8,18 @@ module Enumerable
 			end
 			return ret_array
 		end
-	def my_select
-		ret_array=[]
+	def my_all?
+		ret_bool=true
 		self.my_each do |i|
-			if yield(i)==true
-				ret_array<<i
+			if yield(i)==false
+				ret_bool=false
+				break
 			end
 		end
-		return ret_array
+		return ret_bool
 	end
 	#works
 
 end
-marr=[]
-arr=["a","b","c"]
-marr<<arr.my_select{|v|v=="b"}
-puts marr
+
+puts %w[ant bear cat].my_all? { |word| word.length >= 4 }
