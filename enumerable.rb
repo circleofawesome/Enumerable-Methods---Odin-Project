@@ -1,11 +1,12 @@
 module Enumerable
 		def my_each
 			num=0
-			self.length.times do
-				yield(self[num])
+			self2=self.to_a
+			self2.length.times do
+				yield(self2[num])
 				num+=1
 			end
-			return self
+			return self2
 		end
 		#works
 
@@ -102,4 +103,27 @@ module Enumerable
 			end
 			return ret_array
 		end
+		#works
+
+		def my_inject(*num)
+			if num[0]==nil
+			#no argument provided
+				self_arr=[]
+				self.my_each do |i|
+					self_arr<<i
+				end
+				sum1=self_arr[0]
+				self_arr.delete_at(0)
+				self_arr.my_each do |i|
+					sum1=yield(sum1,i)
+				end
+			else
+		#argument provided
+				sum1=num[0]
+				self.my_each do |i|
+					sum1=yield(sum1,i)
+				end
+			end
+			return sum1
+	end
 end
