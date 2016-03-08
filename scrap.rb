@@ -30,15 +30,14 @@ module Enumerable
 		end
 		return sum1
 	end
-	
-
 end
-
-#puts (5..10).my_inject { |sum, n| sum * n }
-#the above and below work correctly 
-#puts (5..10).my_inject { |product, n| product + n }
-longest = %w{ cat sheep bear }.my_inject do |memo, word|
-   memo.length > word.length ? memo : word
+def multiply_els(num=[])
+		return num.my_inject{|product,i|product*i}
 end
-puts longest                                  
+#works
+
+
+
+
+puts multiply_els([5*9*3])
 

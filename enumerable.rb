@@ -118,12 +118,17 @@ module Enumerable
 					sum1=yield(sum1,i)
 				end
 			else
-		#argument provided
+			#argument provided
 				sum1=num[0]
 				self.my_each do |i|
 					sum1=yield(sum1,i)
 				end
 			end
 			return sum1
-	end
+		end
 end
+
+def multiply_els(num=[])
+		return num.my_inject{|product,i|product*i}
+end
+#works
