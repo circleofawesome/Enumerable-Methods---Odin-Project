@@ -8,34 +8,20 @@ module Enumerable
 			end
 			return ret_array
 		end
-	def my_count(*num)
-		count=0
-		if block_given?
-			self.my_each do |i|
-				if yield(i)==true
-					count+=1
-				end
-			end
-		
-		elsif num[0]==nil
-			self.my_each do |i|
-				if i!=nil
-					count+=1
-				end
-			end
-		elsif num!=nil
-			num.each do |p|
-				self.each do |i|
-					if i==p
-						count+=1
-					end
-				end
-			end
+	def my_inject(num)
+		arr=[]
+		self.each do |i|
+			#arr<<yield(num,i)
+			num=yield(num,i)
 		end
-		return count
+		return num
 	end
 
 end
 
-arr=[1,2,3,4,4]
-puts arr.my_count{|i|i>2}
+puts (5..10).my_inject(1){|pro,x|pro+x}
+
+#this fuckin works
+
+
+
